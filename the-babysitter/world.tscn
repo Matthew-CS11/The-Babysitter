@@ -15,11 +15,8 @@ sky = SubResource("Sky_fj7yv")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
-albedo_color = Color(1, 0.39999998, 0.39999998, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
-albedo_color = Color(0, 0.1500001, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
+albedo_color = Color(2.4065375e-08, 0.32330477, 0.014311342, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
 albedo_color = Color(0, 0.0666666, 1, 1)
@@ -37,22 +34,14 @@ environment = SubResource("Environment_tlwt5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1396954744]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(1, 0.98333335, 0, 1)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1549809559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 use_collision = true
 size = Vector3(150, 0.5, 150)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1503406984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.23519, -5.027821, 0)
-size = Vector3(25, 10, 25)
-material = SubResource("StandardMaterial3D_f3sb7")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=430696755]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8919096, -25.761066)
-size = Vector3(25, 10, 25)
-material = SubResource("StandardMaterial3D_tlwt5")
+material = SubResource("StandardMaterial3D_aqk2v")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=589309570]
 script = ExtResource("1_f3sb7")
@@ -66,3 +55,9 @@ shape = SubResource("ConvexPolygonShape3D_aqk2v")
 [node name="Neck" type="Node3D" parent="player" unique_id=1434266108]
 
 [node name="Camera3D" type="Camera3D" parent="player/Neck" unique_id=1827447726]
+
+[node name="House" type="Node3D" parent="." unique_id=1480786231]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="House" unique_id=542012259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.162136, -18.104876)
+size = Vector3(25, 5, 25)
