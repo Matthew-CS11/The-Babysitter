@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://daoap32qdu4kg"]
+
+[ext_resource type="Script" uid="uid://11jbo6ks58am" path="res://player/player.gd" id="1_oul6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_color = Color(0, 0.0666666, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tlwt5"]
+material = SubResource("StandardMaterial3D_fj7yv")
+height = 4.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f3sb7"]
+points = PackedVector3Array(0.44943038, 1.6480811, 0.15506846, -0.46824777, 1.6506943, -0.34125122, 0.42062244, -1.5870531, -0.40464383, -0.07759154, -1.4847217, 0.49335548, -0.40464383, 1.5870531, 0.42062244, 0.23012762, 1.5870531, -0.53174603, -0.34125122, -1.6506943, -0.46824777, 0.39289603, -1.7175173, 0.21519965, 0.14618985, 1.3826421, 0.47810838, -0.53174603, -1.5870531, 0.23012762, 0.09869776, 1.9371257, 0.21977995, 0.42062244, 1.5870531, -0.40464383, -0.20450279, -1.9434978, 0.09899631, -0.53174603, 1.5870531, 0.23012762, 0.23012762, -1.5870531, -0.53174603, 0.49335548, -1.4847217, -0.07759154, 0.32130614, -1.53813, 0.37829104, -0.34125122, 1.6506943, -0.46824777, -0.40464383, -1.5870531, 0.42062244, 0.09899642, -1.9435003, -0.20450306, -0.083160736, 1.9464557, -0.20482612, -0.46824777, -1.6506943, -0.34125122, 0.49104545, 1.4776562, 0.09315206, 0.37829104, 1.53813, 0.32130614, 0.47810838, -1.3826421, 0.14618985, 0.098697715, -1.9371247, 0.21977985, -0.07759154, 1.4847217, 0.49335548, -0.20450306, 1.9435003, 0.09899642, 0.22007298, 1.9398053, -0.08284948, 0.09315206, -1.4776562, 0.49104545, 0.09724086, 1.7866242, 0.3950873, 0.49335548, 1.4847217, -0.07759154)
+
+[node name="player" type="CharacterBody3D" unique_id=698077815]
+script = ExtResource("1_oul6g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1331080381]
+mesh = SubResource("CapsuleMesh_tlwt5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=934435811]
+shape = SubResource("ConvexPolygonShape3D_f3sb7")
+
+[node name="Neck" type="Node3D" parent="." unique_id=535611423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4481807, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck" unique_id=2038420894]

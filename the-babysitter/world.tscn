@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://boinllagjijcn"]
 
-[ext_resource type="Script" uid="uid://11jbo6ks58am" path="res://player/player.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://daoap32qdu4kg" path="res://player/player.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://door.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://dvpq27q77josu" path="res://door.gd" id="3_tlwt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,16 +20,6 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
 albedo_color = Color(2.4065375e-08, 0.32330477, 0.014311342, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
-albedo_color = Color(0, 0.0666666, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_tlwt5"]
-material = SubResource("StandardMaterial3D_fj7yv")
-height = 4.0
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f3sb7"]
-points = PackedVector3Array(0.44943038, 1.6480811, 0.15506846, -0.46824777, 1.6506943, -0.34125122, 0.42062244, -1.5870531, -0.40464383, -0.07759154, -1.4847217, 0.49335548, -0.40464383, 1.5870531, 0.42062244, 0.23012762, 1.5870531, -0.53174603, -0.34125122, -1.6506943, -0.46824777, 0.39289603, -1.7175173, 0.21519965, 0.14618985, 1.3826421, 0.47810838, -0.53174603, -1.5870531, 0.23012762, 0.09869776, 1.9371257, 0.21977995, 0.42062244, 1.5870531, -0.40464383, -0.20450279, -1.9434978, 0.09899631, -0.53174603, 1.5870531, 0.23012762, 0.23012762, -1.5870531, -0.53174603, 0.49335548, -1.4847217, -0.07759154, 0.32130614, -1.53813, 0.37829104, -0.34125122, 1.6506943, -0.46824777, -0.40464383, -1.5870531, 0.42062244, 0.09899642, -1.9435003, -0.20450306, -0.083160736, 1.9464557, -0.20482612, -0.46824777, -1.6506943, -0.34125122, 0.49104545, 1.4776562, 0.09315206, 0.37829104, 1.53813, 0.32130614, 0.47810838, -1.3826421, 0.14618985, 0.098697715, -1.9371247, 0.21977985, -0.07759154, 1.4847217, 0.49335548, -0.20450306, 1.9435003, 0.09899642, 0.22007298, 1.9398053, -0.08284948, 0.09315206, -1.4776562, 0.49104545, 0.09724086, 1.7866242, 0.3950873, 0.49335548, 1.4847217, -0.07759154)
-
 [node name="World" type="Node3D" unique_id=281304517]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1913754571]
@@ -38,59 +30,54 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 light_color = Color(1, 0.98333335, 0, 1)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1549809559]
+[node name="ground" type="CSGBox3D" parent="." unique_id=1549809559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 use_collision = true
 size = Vector3(150, 0.5, 150)
 material = SubResource("StandardMaterial3D_aqk2v")
 
-[node name="player" type="CharacterBody3D" parent="." unique_id=589309570]
-script = ExtResource("1_f3sb7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=509766183]
-mesh = SubResource("CapsuleMesh_tlwt5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=133038434]
-shape = SubResource("ConvexPolygonShape3D_f3sb7")
-
-[node name="Neck" type="Node3D" parent="player" unique_id=1434266108]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4481807, 0)
-
-[node name="Camera3D" type="Camera3D" parent="player/Neck" unique_id=1827447726]
+[node name="player" parent="." unique_id=698077815 groups=["player"] instance=ExtResource("1_f3sb7")]
 
 [node name="House" type="Node3D" parent="." unique_id=1480786231]
 
-[node name="leftoutsidewall" type="CSGBox3D" parent="House" unique_id=1245420430]
+[node name="house walls" type="Node3D" parent="House" unique_id=613223307]
+
+[node name="leftoutsidewall" type="CSGBox3D" parent="House/house walls" unique_id=1245420430]
 transform = Transform3D(-0.024763718, 0, 0.99969333, 0, 1, 0, -0.99969333, 0, -0.024763718, -14.869254, 3.0589237, -18.066774)
 use_collision = true
 size = Vector3(30, 12, 0.5)
 
-[node name="rightoutsidewall" type="CSGBox3D" parent="House" unique_id=293562690]
+[node name="rightoutsidewall" type="CSGBox3D" parent="House/house walls" unique_id=293562690]
 transform = Transform3D(0.007557178, 0, 0.99997145, 0, 1, 0, -0.99997145, 0, 0.007557178, 14.814477, 3.0240698, -18.066774)
 use_collision = true
 size = Vector3(30, 12, 0.5)
 
-[node name="backoutsidewall" type="CSGBox3D" parent="House" unique_id=975924224]
+[node name="backoutsidewall" type="CSGBox3D" parent="House/house walls" unique_id=975924224]
 transform = Transform3D(1, 0, 0.0003490448, 0, 1, 0, -0.0003490448, 0, 1, -0.06704044, 3.0589237, -32.92911)
 use_collision = true
 size = Vector3(30, 12, 0.5)
 
-[node name="floor" type="CSGBox3D" parent="House" unique_id=542012259]
+[node name="floor" type="CSGBox3D" parent="House/house walls" unique_id=542012259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, -4.2490106, -18.104876)
 use_collision = true
 size = Vector3(30, 5, 30)
 
-[node name="rightfront" type="CSGBox3D" parent="House" unique_id=291147001]
+[node name="rightfront" type="CSGBox3D" parent="House/house walls" unique_id=291147001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.140536, 3.18955, -3.3435094)
 use_collision = true
 size = Vector3(11, 12, 0.5)
 
-[node name="leftfront" type="CSGBox3D" parent="House" unique_id=111777234]
+[node name="leftfront" type="CSGBox3D" parent="House/house walls" unique_id=111777234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7432575, 3.18955, -3.3819864)
 use_collision = true
 size = Vector3(11, 12, 0.5)
 
-[node name="topfront" type="CSGBox3D" parent="House" unique_id=120748452]
+[node name="topfront" type="CSGBox3D" parent="House/house walls" unique_id=120748452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20709848, 6.711851, -3.3731935)
 use_collision = true
 size = Vector3(8, 5, 0.5)
+
+[node name="door" parent="House" unique_id=639790074 instance=ExtResource("2_fj7yv")]
+script = ExtResource("3_tlwt5")
+
+[connection signal="body_entered" from="House/door" to="House/door" method="_on_body_entered"]
