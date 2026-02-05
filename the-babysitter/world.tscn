@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://boinllagjijcn"]
 
 [ext_resource type="PackedScene" uid="uid://daoap32qdu4kg" path="res://player/player.tscn" id="1_f3sb7"]
-[ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://door.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://house/door.tscn" id="2_fj7yv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,6 +18,9 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
 albedo_color = Color(2.4065375e-08, 0.32330477, 0.014311342, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_color = Color(0.6732119, 0.43230185, 0, 1)
 
 [node name="World" type="Node3D" unique_id=281304517]
 
@@ -77,4 +80,22 @@ use_collision = true
 size = Vector3(8, 5, 0.5)
 
 [node name="door" parent="House" unique_id=639790074 instance=ExtResource("2_fj7yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71047115, -3.301204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.71047115, -3.301204)
+
+[node name="side1 of door" type="CSGBox3D" parent="House" unique_id=222804917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6075253, 1.2266062, -3.2115362)
+use_collision = true
+size = Vector3(1.3388672, 5.958496, 1)
+material = SubResource("StandardMaterial3D_fj7yv")
+
+[node name="side2 of door" type="CSGBox3D" parent="House" unique_id=1047103029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.948328, 1.2266062, -3.2115362)
+use_collision = true
+size = Vector3(1.3388672, 5.958496, 1)
+material = SubResource("StandardMaterial3D_fj7yv")
+
+[node name="interior" type="Node3D" parent="House" unique_id=1568448176]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="House/interior" unique_id=202350732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1093855, 1.8267593, -23.687256)
+size = Vector3(7.2922363, 6.8338013, 0.7491455)
