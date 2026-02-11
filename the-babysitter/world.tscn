@@ -50,9 +50,9 @@ use_collision = true
 size = Vector3(30, 12, 0.5)
 
 [node name="rightoutsidewall" type="CSGBox3D" parent="House/house walls" unique_id=293562690]
-transform = Transform3D(0.007557178, 0, 0.99997145, 0, 1, 0, -0.99997145, 0, 0.007557178, 14.814477, 3.0240698, -18.066774)
+transform = Transform3D(0.007557178, 0, 0.99997145, 0, 1, 0, -0.99997145, 0, 0.007557178, 14.814477, 3.0733862, -18.066774)
 use_collision = true
-size = Vector3(30, 12, 0.5)
+size = Vector3(30, 12.098633, 0.5)
 
 [node name="backoutsidewall" type="CSGBox3D" parent="House/house walls" unique_id=975924224]
 transform = Transform3D(1, 0, 0.0003490448, 0, 1, 0, -0.0003490448, 0, 1, -0.06704044, 3.0589237, -32.92911)
@@ -75,12 +75,15 @@ use_collision = true
 size = Vector3(11, 12, 0.5)
 
 [node name="topfront" type="CSGBox3D" parent="House/house walls" unique_id=120748452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20709848, 6.711851, -3.3731935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20709848, 6.649351, -3.3731935)
 use_collision = true
-size = Vector3(8, 5, 0.5)
+size = Vector3(8, 5.125, 0.5)
 
 [node name="door" parent="House" unique_id=639790074 instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.71047115, -3.301204)
+
+[node name="door2" parent="House" unique_id=1295973981 instance=ExtResource("2_fj7yv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2215943, 0.71047115, -24.10224)
 
 [node name="side1 of door" type="CSGBox3D" parent="House" unique_id=222804917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6075253, 1.2266062, -3.2115362)
@@ -97,5 +100,26 @@ material = SubResource("StandardMaterial3D_fj7yv")
 [node name="interior" type="Node3D" parent="House" unique_id=1568448176]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="House/interior" unique_id=202350732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1093855, 1.8267593, -23.687256)
-size = Vector3(7.2922363, 6.8338013, 0.7491455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1093855, 1.7358932, -24.983809)
+use_collision = true
+size = Vector3(7.2922363, 7.0155334, 0.7491455)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="House/interior" unique_id=757085235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.341135, 1.7358932, -16.222435)
+use_collision = true
+size = Vector3(10.501099, 7.0155334, 0.7491455)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="House/interior" unique_id=1800212847]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.382165, 1.7358932, -29.562313)
+use_collision = true
+size = Vector3(6.880501, 7.0155334, 0.7491455)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="House/interior" unique_id=1881951574]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.382165, 1.7358932, -18.98626)
+use_collision = true
+size = Vector3(6.196907, 7.0155334, 0.7491455)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="House/interior" unique_id=368952574]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.382165, 4.6677694, -24.255087)
+use_collision = true
+size = Vector3(6.196907, 1.1411076, 0.7491455)
