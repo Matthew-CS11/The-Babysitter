@@ -1,10 +1,19 @@
 extends CharacterBody3D
+class_name Player
 
-
-const SPEED = 5.0
+const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
+const SPRINT_VELOCITY = 1.5
+# Head bobbing intensity/speed
+const BOB_WALK_SPEED = 14.0
+const BOB_SPRINT_SPEED = 22.0
+const BOB_INTENSITY = 0.05
+
 @onready var neck: Node3D = $Neck
 @onready var camera_3d: Camera3D = $Neck/Camera3D
+
+var head_bob_vector = Vector2.ZERO
+var head_bob_index = 0.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -30,9 +39,32 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forawrd", "backward")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_VELOCITY * 2)
+	var bob_speed = BOB_WALK_SPEED
+
+	head_bob_index += bob_speed * delta
+	
+	var new_y = sin(head_bob_index) * BOB_INTENSITY
+	var new_x = cos(head_bob_index * 0.5) * BOB_INTENSITY
+	
+	if velocity.length() > 0.1:
+		camera_3d.position.y = lerp(camera_3d.position.y, 0.0 + new_y, 0.1)
+		camera_3d.position.x = lerp(camera_3d.position.x, 0.0 + new_x, 0.1)
+	else:
+		# Smoothly return to center when stopping
+		camera_3d.position.y = lerp(camera_3d.position.y, 0.0, 0.1)
+		camera_3d.position.x = lerp(camera_3d.position.x, 0.0, 0.1)
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		
+		#checking for sprint
+		if Input.is_action_pressed("sprint"):
+			velocity.z *= SPRINT_VELOCITY
+			velocity.x *= SPRINT_VELOCITY
+			#headbob
+			bob_speed = BOB_SPRINT_SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
