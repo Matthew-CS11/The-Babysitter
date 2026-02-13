@@ -4,10 +4,9 @@ class_name Player
 const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
 const SPRINT_VELOCITY = 1.5
-# Head bobbing intensity/speed
 const BOB_WALK_SPEED = 14.0
 const BOB_SPRINT_SPEED = 22.0
-const BOB_INTENSITY = .5
+const BOB_INTENSITY = .25
 
 @onready var neck: Node3D = $Neck
 @onready var camera_3d: Camera3D = $Neck/Camera3D
@@ -59,6 +58,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z *= SPRINT_VELOCITY
 			velocity.x *= SPRINT_VELOCITY
 			#headbob
+			camera_3d.position.y = lerp(camera_3d.position.y, camera_3d.position.y + new_y, 0.1)
 			bob_speed = BOB_SPRINT_SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

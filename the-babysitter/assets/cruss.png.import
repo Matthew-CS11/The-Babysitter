@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7ge5ne28vxvh"
-path="res://.godot/imported/cruss.png-dda85edb71ec0416760c3ff57688578d.ctex"
+path="res://.godot/imported/cruss.png-57d50065c1d9079af27869ab07113e46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cruss.png"
-dest_files=["res://.godot/imported/cruss.png-dda85edb71ec0416760c3ff57688578d.ctex"]
+source_file="res://assets/cruss.png"
+dest_files=["res://.godot/imported/cruss.png-57d50065c1d9079af27869ab07113e46.ctex"]
 
 [params]
 

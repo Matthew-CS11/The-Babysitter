@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du4v1imfc2oi1"
-path="res://.godot/imported/crusshair.png-7477675b981d6fff8737d9f114d69a9b.ctex"
+path="res://.godot/imported/crusshair.png-7cc9177fd1dec2c450b227760116adad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://crusshair.png"
-dest_files=["res://.godot/imported/crusshair.png-7477675b981d6fff8737d9f114d69a9b.ctex"]
+source_file="res://assets/crusshair.png"
+dest_files=["res://.godot/imported/crusshair.png-7cc9177fd1dec2c450b227760116adad.ctex"]
 
 [params]
 
