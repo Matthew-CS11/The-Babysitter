@@ -7,7 +7,7 @@ const SPRINT_VELOCITY = 1.5
 # Head bobbing intensity/speed
 const BOB_WALK_SPEED = 14.0
 const BOB_SPRINT_SPEED = 22.0
-const BOB_INTENSITY = 0.05
+const BOB_INTENSITY = .5
 
 @onready var neck: Node3D = $Neck
 @onready var camera_3d: Camera3D = $Neck/Camera3D
@@ -46,18 +46,13 @@ func _physics_process(delta: float) -> void:
 	
 	var new_y = sin(head_bob_index) * BOB_INTENSITY
 	var new_x = cos(head_bob_index * 0.5) * BOB_INTENSITY
-	
-	if velocity.length() > 0.1:
-		camera_3d.position.y = lerp(camera_3d.position.y, 0.0 + new_y, 0.1)
-		camera_3d.position.x = lerp(camera_3d.position.x, 0.0 + new_x, 0.1)
-	else:
-		# Smoothly return to center when stopping
-		camera_3d.position.y = lerp(camera_3d.position.y, 0.0, 0.1)
-		camera_3d.position.x = lerp(camera_3d.position.x, 0.0, 0.1)
-	
+		
+		
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		camera_3d.position.y = lerp(camera_3d.position.y, camera_3d.position.y + new_y, 0.1)
+		camera_3d.position.x = lerp(camera_3d.position.x, 0.0 + new_x, 0.1)
 		
 		#checking for sprint
 		if Input.is_action_pressed("sprint"):
@@ -68,5 +63,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		camera_3d.position.y = lerp(camera_3d.position.y, 0.0, 0.1)
+		camera_3d.position.x = lerp(camera_3d.position.x, 0.0, 0.1)
 
 	move_and_slide()
