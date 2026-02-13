@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://daoap32qdu4kg" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://house/door.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://66ii5cxwwhy2" path="res://bed.tscn" id="3_tlwt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -82,19 +83,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20709848, 6.649351, -3.3731
 use_collision = true
 size = Vector3(8, 5.125, 0.5)
 
-[node name="door" parent="House" unique_id=639790074 instance=ExtResource("2_fj7yv")]
+[node name="all_doors" type="Node3D" parent="House" unique_id=1155563200]
+
+[node name="door" parent="House/all_doors" unique_id=639790074 instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.71047115, -3.301204)
 
-[node name="door2" parent="House" unique_id=1295973981 instance=ExtResource("2_fj7yv")]
+[node name="bedroom_door" parent="House/all_doors" unique_id=1295973981 instance=ExtResource("2_fj7yv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2215943, 0.71047115, -24.10224)
 
-[node name="side1 of door" type="CSGBox3D" parent="House" unique_id=222804917]
+[node name="side1 of door" type="CSGBox3D" parent="House/all_doors" unique_id=222804917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6075253, 1.2266062, -3.2115362)
 use_collision = true
 size = Vector3(1.3388672, 5.958496, 1)
 material = SubResource("StandardMaterial3D_fj7yv")
 
-[node name="side2 of door" type="CSGBox3D" parent="House" unique_id=1047103029]
+[node name="side2 of door" type="CSGBox3D" parent="House/all_doors" unique_id=1047103029]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.948328, 1.2266062, -3.2115362)
 use_collision = true
 size = Vector3(1.3388672, 5.958496, 1)
@@ -102,27 +105,34 @@ material = SubResource("StandardMaterial3D_fj7yv")
 
 [node name="interior" type="Node3D" parent="House" unique_id=1568448176]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="House/interior" unique_id=202350732]
+[node name="walls" type="Node3D" parent="House/interior" unique_id=1183613139]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="House/interior/walls" unique_id=202350732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1093855, 1.7358932, -24.983809)
 use_collision = true
 size = Vector3(7.2922363, 7.0155334, 0.7491455)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="House/interior" unique_id=757085235]
+[node name="Bedroom" type="Node3D" parent="House/interior" unique_id=1778235652]
+
+[node name="Bed" parent="House/interior/Bedroom" unique_id=239847038 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 12.773239, -1.8271071, -28.525135)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="House/interior/Bedroom" unique_id=757085235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.341135, 1.7358932, -16.222435)
 use_collision = true
 size = Vector3(10.501099, 7.0155334, 0.7491455)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="House/interior" unique_id=1800212847]
+[node name="CSGBox3D3" type="CSGBox3D" parent="House/interior/Bedroom" unique_id=1800212847]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.382165, 1.7358932, -29.562313)
 use_collision = true
 size = Vector3(6.880501, 7.0155334, 0.7491455)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="House/interior" unique_id=1881951574]
+[node name="CSGBox3D4" type="CSGBox3D" parent="House/interior/Bedroom" unique_id=1881951574]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.382165, 1.7358932, -18.98626)
 use_collision = true
 size = Vector3(6.196907, 7.0155334, 0.7491455)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="House/interior" unique_id=368952574]
+[node name="CSGBox3D5" type="CSGBox3D" parent="House/interior/Bedroom" unique_id=368952574]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.382165, 4.6677694, -24.255087)
 use_collision = true
 size = Vector3(6.196907, 1.1411076, 0.7491455)
