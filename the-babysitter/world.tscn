@@ -43,6 +43,7 @@ size = Vector3(150, 0.5, 150)
 material = SubResource("StandardMaterial3D_aqk2v")
 
 [node name="player" parent="." unique_id=698077815 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.009534)
 
 [node name="House" type="Node3D" parent="." unique_id=1480786231]
 

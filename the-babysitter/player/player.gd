@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 		camera_3d.position.y = lerp(camera_3d.position.y, camera_3d.position.y + new_y, 0.1)
-		camera_3d.position.x = lerp(camera_3d.position.x, 0.0 + new_x, 0.1)
+		camera_3d.position.x = lerp(camera_3d.position.x, camera_3d.position.x + new_x, 0.1)
 		
 		#checking for sprint
 		if Input.is_action_pressed("sprint"):
@@ -60,6 +60,7 @@ func _physics_process(delta: float) -> void:
 			#headbob
 			camera_3d.position.y = lerp(camera_3d.position.y, camera_3d.position.y + new_y, 0.1)
 			bob_speed = BOB_SPRINT_SPEED
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
