@@ -26,6 +26,8 @@ albedo_color = Color(0.6732119, 0.43230185, 0, 1)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fj7yv"]
 load_path = "res://.godot/imported/crosshairs_tilesheet_white.png-53511b872f58b45d3f7821c09844be00.ctex"
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_tlwt5"]
+
 [node name="World" type="Node3D" unique_id=281304517]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1913754571]
@@ -170,3 +172,6 @@ texture = SubResource("CompressedTexture2D_fj7yv")
 region_enabled = true
 region_rect = Rect2(5, 72.87348, 55.301517, 56.659477)
 region_filter_clip_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1673925699]
+navigation_mesh = SubResource("NavigationMesh_tlwt5")
