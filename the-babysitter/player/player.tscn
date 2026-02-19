@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://daoap32qdu4kg"]
 
 [ext_resource type="Script" uid="uid://11jbo6ks58am" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://bkays6ln1w3a" path="res://assets/blaster-n.glb" id="2_rkbax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
 albedo_color = Color(0, 0.0666666, 1, 1)
@@ -26,3 +27,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4481807, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=2038420894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Weapon" type="Node3D" parent="Neck/Camera3D" unique_id=943615872]
+
+[node name="blaster-n2" parent="Neck/Camera3D/Weapon" unique_id=1036555857 instance=ExtResource("2_rkbax")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.51101327, -0.7875234, -1.02439)
