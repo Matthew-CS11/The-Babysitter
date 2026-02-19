@@ -178,4 +178,4 @@ region_rect = Rect2(5, 72.87348, 55.301517, 56.659477)
 region_filter_clip_enabled = true
 
 [node name="Enemy" parent="." unique_id=893670761 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.56209546, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.648278, -0.56209546, -27.992325)
