@@ -6,6 +6,9 @@ extends Node3D
 @export var recoil_amplitude := Vector3(1,1,1)
 @export var lerp_speed : float = 1
 
+@onready var weapon: Node3D = $".."
+
+var ammo = preload("res://player/bullet.tscn")
 var target_rot : Vector3
 var target_pos : Vector3
 var current_time : float
@@ -17,6 +20,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		apply_recoil()
+		shoot()
 	
 	if current_time < 1:
 		current_time += delta
@@ -34,4 +38,13 @@ func apply_recoil():
 	target_rot.x = recoil_rotation_x.sample(0)
 	target_pos.z = recoil_position_z.sample(0)
 	current_time = 0
+	
+
+func shoot():
+	var bullet = ammo.instantiate()
+	add_child(bullet)
+	bullet.global_position = weapon.global_position
+	bullet.direction = weapon.global_transform.basis.z
+	
+	
 	

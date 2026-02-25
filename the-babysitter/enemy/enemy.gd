@@ -1,9 +1,19 @@
 extends CharacterBody3D
 
+@export var max_health := 50
+
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player = $"../player"
+
 var agro :float = false
 
+var health:int :
+	set(new_health):
+		if health > new_health:
+			health = new_health
+		if health < 1:
+			queue_free()
+			
 func _process(delta: float) -> void:
 	if agro:
 		navigation_agent_3d.set_target_position(player.global_position)

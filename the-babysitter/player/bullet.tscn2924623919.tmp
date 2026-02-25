@@ -7,6 +7,6 @@
 script = ExtResource("2_j40gx")
 
 [node name="bullet-foam-tip-thick" parent="." index="0" unique_id=2013619612]
-transform = Transform3D(3, 0, 0, 0, -1.3113419e-07, 3.0000005, 0, -3.0000005, -1.3113419e-07, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, -1.1920929e-07, -3.0000005, 0, 3.0000005, -1.1920929e-07, 0, 0, 0)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

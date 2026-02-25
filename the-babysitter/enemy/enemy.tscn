@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c3vw01sm66vgr" path="res://enemy/enemy.gd" id="1_2mvqj"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2mvqj"]
+radius = 0.36279297
+height = 1.420227
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_scxef"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_scxef"]
@@ -10,8 +14,14 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_2mvqj"]
 radius = 3.9841793
 
-[node name="Enemy" type="CharacterBody3D" unique_id=893670761]
+[node name="Enemy" type="CharacterBody3D" unique_id=893670761 groups=["enemy"]]
 script = ExtResource("1_2mvqj")
+
+[node name="damage area" type="Area3D" parent="." unique_id=62098855]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="damage area" unique_id=2000151828]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0025024414, 0)
+shape = SubResource("CapsuleShape3D_2mvqj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=681801995]
 mesh = SubResource("CapsuleMesh_scxef")
