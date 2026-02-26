@@ -5,8 +5,11 @@ extends Node3D
 @export var recoil_position_z : Curve
 @export var recoil_amplitude := Vector3(1,1,1)
 @export var lerp_speed : float = 1
+@export var range: float = 100.0
+@export var damage: int = 25
 
 @onready var weapon: Node3D = $".."
+@onready var muzzle: Marker3D = $"../Muzzle_Marker"
 
 var ammo = preload("res://player/bullet.tscn")
 var target_rot : Vector3
@@ -39,21 +42,37 @@ func apply_recoil():
 	target_pos.z = recoil_position_z.sample(0)
 	current_time = 0
 	
-
-func shoot():
-	var bullet = ammo.instantiate()
 	
-	var world := get_tree().current_scene
-	world.add_child(bullet)
+func shoot() -> void:
+	var from = muzzle.global_position
+	var to = from + (-muzzle.global_transform.basis.z) * range
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(from, to)
 	
-	var muzzle := weapon.get_node_or_null("Muzzle_Marker")
-	var spawn_transform : Transform3D = weapon.global_transform
-	if muzzle:
-		spawn_transform = muzzle.global_transform
-	bullet.global_transform = spawn_transform
-	bullet.direction = (-spawn_transform.basis.z).normalized()
-	#bullet.set_as_top_layer(true)
-	bullet.global_position = muzzle.global_position + (-muzzle.global_transform.basis.z) * 0.2
-	bullet.shooter = get_parent()
+	query.exclude = [self, get_parent()]
 	
+	var hit = space_state.intersect_ray(query)
+	
+	if hit:
+		handle_hit(hit)
+	var tracer = ammo.instantiate()
+	get_tree().current_scene.add_child(tracer)
+	tracer.global_position = from
+	tracer.direction = (to - from).normalized()	
+		
+		
+func handle_hit(hit: Dictionary) -> void:
+	var c = hit.collider
+	
+	if c is Area3D:
+		var a := c as Area3D
+		if a.is_in_group("damage_area"):
+			var enemy = a.owner
+			if enemy and enemy.has_method("take_damage"):
+				enemy.take_damage(damage)
+			return
+			
+	if c is Node and (c as Node).has_method("take_damage"):
+		(c as Node).take_damage(damage)
+		return
 	

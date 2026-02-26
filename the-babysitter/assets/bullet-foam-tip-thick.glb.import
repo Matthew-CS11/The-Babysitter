@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/bullet-foam-tip-thick.glb-d1d2782bbbeba322a52
 
 [params]
 
-nodes/root_type="Area3D"
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
