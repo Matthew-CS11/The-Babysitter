@@ -17,7 +17,7 @@ radius = 3.9841793
 [node name="Enemy" type="CharacterBody3D" unique_id=893670761 groups=["enemy"]]
 script = ExtResource("1_2mvqj")
 
-[node name="damage area" type="Area3D" parent="." unique_id=62098855]
+[node name="damage area" type="Area3D" parent="." unique_id=62098855 groups=["damage_area"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="damage area" unique_id=2000151828]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0025024414, 0)

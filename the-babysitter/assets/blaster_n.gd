@@ -42,9 +42,15 @@ func apply_recoil():
 
 func shoot():
 	var bullet = ammo.instantiate()
-	add_child(bullet)
-	bullet.global_position = weapon.global_position
-	bullet.direction = weapon.global_transform.basis.z
 	
+	var world := get_tree().current_scene
+	world.add_child(bullet)
+	
+	var muzzle := weapon.get_node_or_null("Muzzle_Marker")
+	var spawn_transform : Transform3D = weapon.global_transform
+	if muzzle:
+		spawn_transform = muzzle.global_transform
+	bullet.global_transform = spawn_transform
+	bullet.direction = (-spawn_transform.basis.z).normalized()
 	
 	
