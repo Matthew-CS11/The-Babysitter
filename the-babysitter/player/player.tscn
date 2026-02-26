@@ -42,4 +42,4 @@ recoil_position_z = ExtResource("4_yw30f")
 recoil_amplitude = Vector3(0.75, 0.4, 0.15)
 
 [node name="Muzzle_Marker" type="Marker3D" parent="Neck/Camera3D/Weapon" unique_id=704900073]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13659918, -0.6279168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13659918, -0.7008722)

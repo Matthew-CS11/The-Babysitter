@@ -52,5 +52,8 @@ func shoot():
 		spawn_transform = muzzle.global_transform
 	bullet.global_transform = spawn_transform
 	bullet.direction = (-spawn_transform.basis.z).normalized()
+	#bullet.set_as_top_layer(true)
+	bullet.global_position = muzzle.global_position + (-muzzle.global_transform.basis.z) * 0.2
+	bullet.shooter = get_parent()
 	
 	

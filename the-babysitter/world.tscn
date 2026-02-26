@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://boinllagjijcn"]
+[gd_scene format=4 uid="uid://boinllagjijcn"]
 
 [ext_resource type="PackedScene" uid="uid://daoap32qdu4kg" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://house/door.tscn" id="2_fj7yv"]
@@ -27,6 +27,20 @@ albedo_color = Color(2.4065375e-08, 0.32330477, 0.014311342, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
 albedo_color = Color(0.6732119, 0.43230185, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aqk2v"]
+_surfaces = [{
+"aabb": AABB(-3.6461182, -3.5077667, -0.37457275, 7.2922363, 7.0155334, 0.7491455),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AFppwEB/YMAAyL8+AFppwEB/YMAAyL++AFppwEB/YEAAyL++AFppQEB/YMAAyL++AFppwEB/YMAAyL++AFppwEB/YMAAyL8+AFppwEB/YEAAyL++AFppwEB/YMAAyL++AFppQEB/YMAAyL++AFppwEB/YEAAyL++AFppwEB/YEAAyL8+AFppwEB/YMAAyL8+AFppwEB/YMAAyL8+AFppwEB/YEAAyL8+AFppQEB/YEAAyL8+AFppQEB/YEAAyL8+AFppwEB/YEAAyL8+AFppwEB/YEAAyL++AFppwEB/YMAAyL8+AFppQEB/YMAAyL8+AFppQEB/YMAAyL++AFppQEB/YEAAyL8+AFppQEB/YMAAyL8+AFppwEB/YMAAyL8+AFppQEB/YMAAyL++AFppQEB/YMAAyL8+AFppQEB/YEAAyL8+AFppQEB/YMAAyL++AFppQEB/YEAAyL++AFppwEB/YEAAyL++AFppwEB/YEAAyL++AFppQEB/YEAAyL++AFppQEB/YEAAyL8+AFppQEB/YEAAyL8+AFppQEB/YEAAyL++AFppQEB/YMAAyL++AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_036b0"]
+points = PackedVector3Array(-3.7039742, -3.5656748, -0.43247458, 3.5976763, 3.5077999, 0.36614347, 3.6442325, -3.5077999, 0.37123552, 3.7039742, 3.610776, -0.43247458, -3.5976763, 3.5077999, 0.36614347, 3.7039742, -3.5656748, -0.43247458, -3.7039742, 3.610776, -0.43247458, -3.6442325, -3.5077999, 0.37123552)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fj7yv"]
 load_path = "res://.godot/imported/crosshairs_tilesheet_white.png-53511b872f58b45d3f7821c09844be00.ctex"
@@ -114,10 +128,14 @@ material = SubResource("StandardMaterial3D_fj7yv")
 
 [node name="walls" type="Node3D" parent="House/interior" unique_id=1183613139]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="House/interior/walls" unique_id=202350732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1093855, 1.7358932, -24.983809)
-use_collision = true
-size = Vector3(7.2922363, 7.0155334, 0.7491455)
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="House/interior/walls" unique_id=1406195290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.165218, 1.7358932, -24.983809)
+mesh = SubResource("ArrayMesh_aqk2v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="House/interior/walls/CSGBakedMeshInstance3D" unique_id=988720242]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House/interior/walls/CSGBakedMeshInstance3D/StaticBody3D" unique_id=1978308725]
+shape = SubResource("ConvexPolygonShape3D_036b0")
 
 [node name="Bedroom" type="Node3D" parent="House/interior" unique_id=1778235652]
 
