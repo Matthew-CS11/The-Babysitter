@@ -20,7 +20,7 @@ func take_damage(amt: int) -> void:
 func _process(delta: float) -> void:
 	if agro:
 		navigation_agent_3d.set_target_position(player.global_position)
-		
+
 func _physics_process(delta: float) -> void:
 	var destination = navigation_agent_3d.get_next_path_position()
 	var direction = (destination - global_position).normalized()

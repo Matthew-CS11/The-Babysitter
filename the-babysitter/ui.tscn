@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bo08xll2tb6k4"]
+
+[ext_resource type="Script" uid="uid://cqv7qpg4h75cv" path="res://ui.gd" id="1_fyqef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb563"]
+font_size = 31
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer" unique_id=123434915]
+script = ExtResource("1_fyqef")
+
+[node name="Demons_left" type="Label" parent="." unique_id=580895754]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_right = 58.0
+offset_bottom = 25.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Demons Left: 0"
+label_settings = SubResource("LabelSettings_xb563")
