@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://boinllagjijcn"]
 
-[ext_resource type="PackedScene" uid="uid://daoap32qdu4kg" path="res://player/player.tscn" id="1_f3sb7"]
-[ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://house/door.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://66ii5cxwwhy2" path="res://assets/bed.tscn" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://bflsfiv77x4yw" path="res://enemy/enemy.tscn" id="4_aqk2v"]
+[ext_resource type="Script" uid="uid://dqs6l7da5v4cy" path="res://World/world.gd" id="1_3f78f"]
+[ext_resource type="PackedScene" uid="uid://daoap32qdu4kg" path="res://player/player.tscn" id="2_k8do8"]
+[ext_resource type="PackedScene" uid="uid://dh8xkvqocyic7" path="res://house/door.tscn" id="3_bkhv4"]
+[ext_resource type="PackedScene" uid="uid://66ii5cxwwhy2" path="res://assets/bed.tscn" id="4_yf0ba"]
+[ext_resource type="PackedScene" uid="uid://yne7wyjr7km8" path="res://enemy/enemy_spawnpoints.tscn" id="5_k8do8"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_tlwt5"]
 vertices = PackedVector3Array(-15.75, -1.4990106, -33.75, -14.25, -1.4990106, -33.75, -14.5, -1.4990106, -74.5, -16, -1.4990106, -33.25, -74.5, -1.4990106, -74.5, -74.5, -1.4990106, -33.25, 14, -1.4990106, -33.75, 14.25, -1.4990106, -74.5, 15.5, -1.4990106, -33.75, 15.75, -1.4990106, -32, 74.5, -1.4990106, -32.25, 74.5, -1.4990106, -74.5, -74.5, -1.4990106, -4.75, -15.5, -1.4990106, -4.75, 15.5, -1.4990106, -4.75, 74.5, -1.4990106, -4.75, -9, -1.2490106, -26, -9, -1.2490106, -32, -14.25, -1.2490106, -32, -14.25, -1.2490106, -26, -6.75, -1.2490106, -25.75, -6.75, -1.2490106, -24.25, -7.25, -1.2490106, -24, 3.5, -1.2490106, -23.75, 3.5, -1.2490106, -32, 8.25, -1.2490106, -32, 5.5, -1.2490106, -32, 5.5, -1.2490106, -25.75, 8.25, -1.2490106, -24.25, 14, -1.2490106, -17.25, 14, -1.2490106, -24, 5.5, -1.2490106, -17.25, 5, -1.2490106, -25.5, 9.25, 0.75098944, -30.25, 9.25, 0.50098944, -25, 14, 0.50098944, -25, 14, 0.75098944, -30.25, 5.75, -1.2490106, -4.25, 5.75, -1.2490106, -15.25, 3.5, -1.2490106, -15.5, -14.25, -1.2490106, -24, -13.75, -1.2490106, -4.25, 13.75, -1.2490106, -4.25, 14, -1.2490106, -15.25, 2.25, -1.4990106, -2, 1.75, -1.4990106, -2.5, -3.75, -1.4990106, -2, -1, -1.4990106, 6.25, 1, -1.4990106, 6.25, -1, -1.4990106, 7.75, -15.25, -1.4990106, -2.5, -74.5, -1.4990106, 74.5, 0, -1.4990106, 74.5, -4, -1.4990106, -2.5, 0, -1.4990106, 8.25, 4, -1.4990106, -2, 4.25, -1.4990106, -2.5, 1, -1.4990106, 7.75, 15.25, -1.4990106, -2.5, 74.5, -1.4990106, 74.5)
@@ -47,6 +48,7 @@ load_path = "res://.godot/imported/crosshairs_tilesheet_white.png-53511b872f58b4
 
 [node name="World" type="NavigationRegion3D" unique_id=1596434925]
 navigation_mesh = SubResource("NavigationMesh_tlwt5")
+script = ExtResource("1_3f78f")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1913754571]
 environment = SubResource("Environment_tlwt5")
@@ -62,7 +64,7 @@ use_collision = true
 size = Vector3(150, 0.5, 150)
 material = SubResource("StandardMaterial3D_aqk2v")
 
-[node name="player" parent="." unique_id=698077815 instance=ExtResource("1_f3sb7")]
+[node name="player" parent="." unique_id=698077815 instance=ExtResource("2_k8do8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.009534)
 
 [node name="House" type="Node3D" parent="." unique_id=1480786231]
@@ -106,10 +108,10 @@ size = Vector3(8, 5.125, 0.5)
 
 [node name="all_doors" type="Node3D" parent="House" unique_id=1155563200]
 
-[node name="door" parent="House/all_doors" unique_id=639790074 instance=ExtResource("2_fj7yv")]
+[node name="door" parent="House/all_doors" unique_id=639790074 instance=ExtResource("3_bkhv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.71047115, -3.301204)
 
-[node name="bedroom_door" parent="House/all_doors" unique_id=1295973981 instance=ExtResource("2_fj7yv")]
+[node name="bedroom_door" parent="House/all_doors" unique_id=1295973981 instance=ExtResource("3_bkhv4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2215943, 0.71047115, -24.10224)
 
 [node name="side1 of door" type="CSGBox3D" parent="House/all_doors" unique_id=222804917]
@@ -139,7 +141,7 @@ shape = SubResource("ConvexPolygonShape3D_036b0")
 
 [node name="Bedroom" type="Node3D" parent="House/interior" unique_id=1778235652]
 
-[node name="Bed" parent="House/interior/Bedroom" unique_id=239847038 instance=ExtResource("3_tlwt5")]
+[node name="Bed" parent="House/interior/Bedroom" unique_id=239847038 instance=ExtResource("4_yf0ba")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 12.773239, -1.8271071, -28.525135)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="House/interior/Bedroom" unique_id=757085235]
@@ -195,5 +197,19 @@ region_enabled = true
 region_rect = Rect2(5, 72.87348, 55.301517, 56.659477)
 region_filter_clip_enabled = true
 
-[node name="Enemy" parent="." unique_id=893670761 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.648278, -0.56209546, -27.992325)
+[node name="Enemy_spawnpoints" parent="." unique_id=868882137 instance=ExtResource("5_k8do8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 19)
+
+[node name="Spawn1" parent="Enemy_spawnpoints" index="0" unique_id=1855081505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.465925, -2.5631595, -47.02482)
+
+[node name="Spawn2" parent="Enemy_spawnpoints" index="1" unique_id=1821375060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.296584, -2.3058994, -39.29506)
+
+[node name="Spawn3" parent="Enemy_spawnpoints" index="2" unique_id=1997263603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015843, -2.5718906, -28.06027)
+
+[node name="Spawn4" parent="Enemy_spawnpoints" index="3" unique_id=40265924]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -2.7554805, -26.314117)
+
+[editable path="Enemy_spawnpoints"]
