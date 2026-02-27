@@ -10,6 +10,7 @@ extends Node3D
 
 @onready var weapon: Node3D = $".."
 @onready var muzzle: Marker3D = $"../Muzzle_Marker"
+@onready var blast_sound: AudioStreamPlayer = $"../blast_sound"
 
 var ammo = preload("res://player/bullet.tscn")
 var target_rot : Vector3
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		apply_recoil()
 		shoot()
+		blast_sound.play()
 	
 	if current_time < 1:
 		current_time += delta

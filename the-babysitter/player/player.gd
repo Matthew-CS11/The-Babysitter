@@ -8,11 +8,26 @@ const BOB_WALK_SPEED = 14.0
 const BOB_SPRINT_SPEED = 22.0
 const BOB_INTENSITY = .25
 
+@export var max_health := 50
+
 @onready var neck: Node3D = $Neck
 @onready var camera_3d: Camera3D = $Neck/Camera3D
+@onready var lose_screen: Control = $"../Lose_screen"
 
 var head_bob_vector = Vector2.ZERO
 var head_bob_index = 0.0
+var health : int
+
+signal died
+
+func _ready() -> void:
+	health = max_health
+	
+func take_damage(amt: int) -> void:
+	health -= amt
+	if health <= 0:
+		died.emit()
+		queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -68,3 +83,12 @@ func _physics_process(delta: float) -> void:
 		camera_3d.position.x = lerp(camera_3d.position.x, 0.0, 0.1)
 
 	move_and_slide()
+
+
+func _on_hurt_box_body_entered(body: Node3D) -> void:
+	if body is Enemy:
+		health -= 10
+		print(health)
+		
+func _on_died() -> void:
+	lose_screen.visible = true

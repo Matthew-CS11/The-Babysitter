@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkays6ln1w3a" path="res://assets/blaster-n.glb" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dl8effflwlkho" path="res://assets/blaster_n.gd" id="3_g1dw6"]
 [ext_resource type="Curve" uid="uid://sidrmf6ohkh5" path="res://player/recoil.tres" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://cgt47ywx68ql" path="res://Futuristic Sniper Rifle Single Shot.wav" id="5_qjkh3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
 albedo_color = Color(0, 0.0666666, 1, 1)
@@ -14,6 +15,9 @@ height = 4.2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f3sb7"]
 points = PackedVector3Array(0.44943038, 1.6480811, 0.15506846, -0.46824777, 1.6506943, -0.34125122, 0.42062244, -1.5870531, -0.40464383, -0.07759154, -1.4847217, 0.49335548, -0.40464383, 1.5870531, 0.42062244, 0.23012762, 1.5870531, -0.53174603, -0.34125122, -1.6506943, -0.46824777, 0.39289603, -1.7175173, 0.21519965, 0.14618985, 1.3826421, 0.47810838, -0.53174603, -1.5870531, 0.23012762, 0.09869776, 1.9371257, 0.21977995, 0.42062244, 1.5870531, -0.40464383, -0.20450279, -1.9434978, 0.09899631, -0.53174603, 1.5870531, 0.23012762, 0.23012762, -1.5870531, -0.53174603, 0.49335548, -1.4847217, -0.07759154, 0.32130614, -1.53813, 0.37829104, -0.34125122, 1.6506943, -0.46824777, -0.40464383, -1.5870531, 0.42062244, 0.09899642, -1.9435003, -0.20450306, -0.083160736, 1.9464557, -0.20482612, -0.46824777, -1.6506943, -0.34125122, 0.49104545, 1.4776562, 0.09315206, 0.37829104, 1.53813, 0.32130614, 0.47810838, -1.3826421, 0.14618985, 0.098697715, -1.9371247, 0.21977985, -0.07759154, 1.4847217, 0.49335548, -0.20450306, 1.9435003, 0.09899642, 0.22007298, 1.9398053, -0.08284948, 0.09315206, -1.4776562, 0.49104545, 0.09724086, 1.7866242, 0.3950873, 0.49335548, 1.4847217, -0.07759154)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yw30f"]
+size = Vector3(1, 4.335083, 1.1303711)
 
 [node name="player" type="CharacterBody3D" unique_id=698077815 groups=["player"]]
 script = ExtResource("1_oul6g")
@@ -43,3 +47,15 @@ recoil_amplitude = Vector3(0.75, 0.4, 0.15)
 
 [node name="Muzzle_Marker" type="Marker3D" parent="Neck/Camera3D/Weapon" unique_id=704900073]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13659918, -0.7008722)
+
+[node name="blast_sound" type="AudioStreamPlayer" parent="Neck/Camera3D/Weapon" unique_id=1216018531]
+stream = ExtResource("5_qjkh3")
+
+[node name="HurtBox" type="Area3D" parent="." unique_id=325030874]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox" unique_id=1414020983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12359619, -0.032470703)
+shape = SubResource("BoxShape3D_yw30f")
+
+[connection signal="died" from="." to="." method="_on_died"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

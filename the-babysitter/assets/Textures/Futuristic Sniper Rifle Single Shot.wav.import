@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgy11vbml0wh6"
+path="res://.godot/imported/Futuristic Sniper Rifle Single Shot.wav-bf3c1c8598996999fe161430a1adb9a3.sample"
+
+[deps]
+
+source_file="res://assets/Textures/Futuristic Sniper Rifle Single Shot.wav"
+dest_files=["res://.godot/imported/Futuristic Sniper Rifle Single Shot.wav-bf3c1c8598996999fe161430a1adb9a3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
