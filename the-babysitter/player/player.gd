@@ -13,6 +13,8 @@ const BOB_INTENSITY = .25
 @onready var neck: Node3D = $Neck
 @onready var camera_3d: Camera3D = $Neck/Camera3D
 @onready var lose_screen: Control = $"../Lose_screen"
+@onready var cross: CanvasLayer = $"../cross"
+@onready var ui: CanvasLayer = $"../UI"
 
 var head_bob_vector = Vector2.ZERO
 var head_bob_index = 0.0
@@ -91,4 +93,4 @@ func _on_hurt_box_body_entered(body: Node3D) -> void:
 		print(health)
 		
 func _on_died() -> void:
-	lose_screen.visible = true
+	get_tree().change_scene_to_file("res://lose_screen.tscn")
