@@ -9,12 +9,15 @@ class_name Enemy
 var agro :float = false
 var health : int
 
+signal killed
+
 func _ready() -> void:
 	health = max_health
 	
 func take_damage(amt: int) -> void:
 	health -= amt
 	if health <= 0:
+		killed.emit()
 		queue_free()
 
 func _process(delta: float) -> void:
