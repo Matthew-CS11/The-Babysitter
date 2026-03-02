@@ -50,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13659918, -0.7008722)
 
 [node name="blast_sound" type="AudioStreamPlayer" parent="Neck/Camera3D/Weapon" unique_id=1216018531]
 stream = ExtResource("5_qjkh3")
+volume_db = -22.285
 
 [node name="HurtBox" type="Area3D" parent="." unique_id=325030874]
 

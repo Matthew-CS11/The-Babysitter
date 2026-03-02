@@ -84,9 +84,14 @@ use_collision = true
 size = Vector3(30, 12.098633, 0.5)
 
 [node name="backoutsidewall" type="CSGBox3D" parent="House/house walls" unique_id=975924224]
-transform = Transform3D(1, 0, 0.0003490448, 0, 1, 0, -0.0003490448, 0, 1, -0.06704044, 3.0589237, -32.92911)
+transform = Transform3D(1, 0, 0.0003490448, 0, 1, 0, -0.0003490448, 0, 1, -8.601586, 3.0589237, -32.926132)
 use_collision = true
-size = Vector3(30, 12, 0.5)
+size = Vector3(13.6813965, 12, 0.5)
+
+[node name="backoutsidewall2" type="CSGBox3D" parent="House/house walls" unique_id=37513117]
+transform = Transform3D(1, 0, 0.0003490448, 0, 1, 0, -0.0003490448, 0, 1, 8.6645355, 3.0589237, -32.92614)
+use_collision = true
+size = Vector3(12.987549, 12, 0.5)
 
 [node name="floor" type="CSGBox3D" parent="House/house walls" unique_id=542012259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, -4.2490106, -18.104876)
@@ -108,10 +113,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20709848, 6.649351, -3.3731
 use_collision = true
 size = Vector3(8, 5.125, 0.5)
 
+[node name="topfront2" type="CSGBox3D" parent="House/house walls" unique_id=568596828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20709848, 6.649351, -32.927383)
+use_collision = true
+size = Vector3(8, 5.125, 0.5)
+
 [node name="all_doors" type="Node3D" parent="House" unique_id=1155563200]
 
 [node name="door" parent="House/all_doors" unique_id=639790074 instance=ExtResource("3_bkhv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.71047115, -3.301204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.69261384, -3.301204)
+
+[node name="backdoor" parent="House/all_doors" unique_id=287794964 instance=ExtResource("3_bkhv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23194814, 0.71047115, -32.88006)
 
 [node name="bedroom_door" parent="House/all_doors" unique_id=1295973981 instance=ExtResource("3_bkhv4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2215943, 0.71047115, -24.10224)
@@ -122,8 +135,20 @@ use_collision = true
 size = Vector3(1.3388672, 5.958496, 1)
 material = SubResource("StandardMaterial3D_fj7yv")
 
+[node name="side1 of door2" type="CSGBox3D" parent="House/all_doors" unique_id=767426260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4305973, 1.2266062, -32.942734)
+use_collision = true
+size = Vector3(1.3388672, 5.958496, 1)
+material = SubResource("StandardMaterial3D_fj7yv")
+
 [node name="side2 of door" type="CSGBox3D" parent="House/all_doors" unique_id=1047103029]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.948328, 1.2266062, -3.2115362)
+use_collision = true
+size = Vector3(1.3388672, 5.958496, 1)
+material = SubResource("StandardMaterial3D_fj7yv")
+
+[node name="side2 of door2" type="CSGBox3D" parent="House/all_doors" unique_id=1595899100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8291593, 1.2266062, -32.874992)
 use_collision = true
 size = Vector3(1.3388672, 5.958496, 1)
 material = SubResource("StandardMaterial3D_fj7yv")
@@ -214,6 +239,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015843, -2.5718906, -28.06
 
 [node name="Spawn4" parent="Enemy_spawnpoints" index="3" unique_id=40265924]
 transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -2.7554805, -26.314117)
+
+[node name="Spawn5" parent="Enemy_spawnpoints" index="4" unique_id=2006904833]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 25.878, -2.755, -26.314)
+
+[node name="Spawn6" parent="Enemy_spawnpoints" index="5" unique_id=1940317249]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, -24.704, -2.755, -26.314)
+
+[node name="Spawn7" parent="Enemy_spawnpoints" index="6" unique_id=1381610837]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.107, -2.755, -67.702)
+
+[node name="Spawn8" parent="Enemy_spawnpoints" index="7" unique_id=775108043]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, -30.712, -2.755, -72.418)
+
+[node name="Spawn9" parent="Enemy_spawnpoints" index="8" unique_id=1341592296]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.107, -2.755, -10.438)
+
+[node name="Spawn10" parent="Enemy_spawnpoints" index="9" unique_id=312177444]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, -8.554, -2.755, -6.319)
 
 [node name="UI" parent="." unique_id=123434915 instance=ExtResource("6_bkhv4")]
 

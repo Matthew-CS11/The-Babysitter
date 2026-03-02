@@ -8,8 +8,7 @@ var demons := 0
 var spawn_points: Array[Node] = []
 
 func _ready() -> void:
-	spawn_points = get_tree().get_nodes_in_group("spawn_points")
-	spawn_all()
+	pass
 	
 func spawn_all():
 	for spawn_point in spawn_points:
@@ -33,3 +32,8 @@ func update_demon_label() ->void:
 func _on_enemy_killed() -> void:
 	demons -= 1
 	ui.set_demon_label(demons)
+
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_points = get_tree().get_nodes_in_group("spawn_points")
+	spawn_all()

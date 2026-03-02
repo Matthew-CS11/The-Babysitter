@@ -3,8 +3,13 @@
 [ext_resource type="Script" uid="uid://cqv7qpg4h75cv" path="res://ui.gd" id="1_fyqef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb563"]
-font_size = 31
-outline_size = 9
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fyqef"]
+font_size = 32
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=123434915]
@@ -14,11 +19,18 @@ script = ExtResource("1_fyqef")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -58.0
-offset_right = 58.0
-offset_bottom = 25.0
+offset_left = -573.0
+offset_right = -341.0
+offset_bottom = 45.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Demons Left: 0"
 label_settings = SubResource("LabelSettings_xb563")
+
+[node name="Wave_timer" type="Label" parent="." unique_id=466255471]
+offset_left = 794.0
+offset_right = 1130.0
+offset_bottom = 45.0
+text = "Next Wave: 0 Seconds"
+label_settings = SubResource("LabelSettings_fyqef")

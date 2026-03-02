@@ -18,3 +18,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015843, -0.7238276, -28.06
 
 [node name="Spawn4" type="Marker3D" parent="." unique_id=40265924 groups=["spawn_points"]]
 transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="Spawn5" type="Marker3D" parent="." unique_id=2006904833 groups=["spawn_points"]]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="Spawn6" type="Marker3D" parent="." unique_id=1940317249 groups=["spawn_points"]]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="Spawn7" type="Marker3D" parent="." unique_id=1381610837 groups=["spawn_points"]]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="Spawn8" type="Marker3D" parent="." unique_id=775108043 groups=["spawn_points"]]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="Spawn9" type="Marker3D" parent="." unique_id=1341592296 groups=["spawn_points"]]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="Spawn10" type="Marker3D" parent="." unique_id=312177444 groups=["spawn_points"]]
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -0.7238276, -26.314117)
+
+[node name="spawn_timer" type="Timer" parent="." unique_id=912042868]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
