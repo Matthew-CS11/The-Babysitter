@@ -3,12 +3,22 @@ extends Node3D
 @export var enemy_scene : PackedScene
 
 @onready var ui: CanvasLayer = $"../UI"
+@onready var spawn_timer: Timer = $spawn_timer
 
+var last_second := 1
 var demons := 0
 var spawn_points: Array[Node] = []
+var wave_num : int
 
 func _ready() -> void:
-	pass
+	last_second = -1
+	
+func _process(delta: float) -> void:
+	var seconds_left := int(ceil(spawn_timer.time_left))
+	
+	if seconds_left != last_second:
+		last_second = seconds_left
+		ui.set_wave_label(seconds_left)
 	
 func spawn_all():
 	for spawn_point in spawn_points:
@@ -36,4 +46,7 @@ func _on_enemy_killed() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_points = get_tree().get_nodes_in_group("spawn_points")
+	wave_num += 1
 	spawn_all()
+	ui.set_wave_number(wave_num)
+	last_second = -1
