@@ -19,7 +19,7 @@ const BOB_INTENSITY = .25
 var head_bob_vector = Vector2.ZERO
 var head_bob_index = 0.0
 var health : int
-
+var enemy : Enemy
 
 func _ready() -> void:
 	health = max_health

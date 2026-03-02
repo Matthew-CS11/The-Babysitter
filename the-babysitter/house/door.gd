@@ -3,8 +3,10 @@ extends Area3D
 
 
 func _on_body_entered(body: Node3D) -> void:
-	animation_player.play("open_door")
+	if body is Player:
+		animation_player.play("open_door")
 
 
 func _on_body_exited(body: Node3D) -> void:
-	animation_player.play("close_door")
+	if body is Player:
+		animation_player.play("close_door")

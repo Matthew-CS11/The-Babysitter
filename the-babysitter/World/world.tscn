@@ -229,16 +229,16 @@ region_filter_clip_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 19)
 
 [node name="Spawn1" parent="Enemy_spawnpoints" index="0" unique_id=1855081505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.465925, -2.5631595, -47.02482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.68438, -2.5631595, -47.02482)
 
 [node name="Spawn2" parent="Enemy_spawnpoints" index="1" unique_id=1821375060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.296584, -2.3058994, -39.29506)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.787132, -2.3058994, -39.29506)
 
 [node name="Spawn3" parent="Enemy_spawnpoints" index="2" unique_id=1997263603]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015843, -2.5718906, -28.06027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015843, -2.5718906, -73.35496)
 
 [node name="Spawn4" parent="Enemy_spawnpoints" index="3" unique_id=40265924]
-transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 11.106638, -2.7554805, -26.314117)
+transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, -33.806694, -2.7554805, -8.932039)
 
 [node name="Spawn5" parent="Enemy_spawnpoints" index="4" unique_id=2006904833]
 transform = Transform3D(0.99988997, 0, 0.014834755, 0, 1, 0, -0.014834755, 0, 0.99988997, 25.878, -2.755, -26.314)
