@@ -20,7 +20,6 @@ var head_bob_vector = Vector2.ZERO
 var head_bob_index = 0.0
 var health : int
 
-signal died
 
 func _ready() -> void:
 	health = max_health
@@ -28,8 +27,7 @@ func _ready() -> void:
 func take_damage(amt: int) -> void:
 	health -= amt
 	if health <= 0:
-		died.emit()
-		queue_free()
+		die()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -86,11 +84,22 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
+func die():
+	if lose_screen:
+		lose_screen.visible = true
+		lose_screen.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if cross:
+			cross.visible = false
+		if ui:
+			ui.visible = false
+	else:
+		get_tree().change_scene_to_file("res://lose_screen.tscn")
+	
+	
 func _on_hurt_box_body_entered(body: Node3D) -> void:
 	if body is Enemy:
-		health -= 10
+		take_damage(10)
 		print(health)
 		
-func _on_died() -> void:
-	get_tree().change_scene_to_file("res://lose_screen.tscn")

@@ -33,6 +33,7 @@ shape = SubResource("ConvexPolygonShape3D_scxef")
 debug_enabled = true
 
 [node name="agression_radius" type="Area3D" parent="." unique_id=834380806]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="agression_radius" unique_id=592798727]
 shape = SubResource("SphereShape3D_2mvqj")

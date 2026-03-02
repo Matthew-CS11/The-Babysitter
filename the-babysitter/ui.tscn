@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bo08xll2tb6k4"]
 
 [ext_resource type="Script" uid="uid://cqv7qpg4h75cv" path="res://ui.gd" id="1_fyqef"]
+[ext_resource type="PackedScene" uid="uid://bc2m6vbelfisa" path="res://lose_screen.tscn" id="2_m6e0p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb563"]
 font_size = 36
@@ -50,3 +51,6 @@ offset_right = 71.0
 offset_bottom = 646.0
 text = "0"
 label_settings = SubResource("LabelSettings_m6e0p")
+
+[node name="Lose_screen" parent="." unique_id=1275241154 instance=ExtResource("2_m6e0p")]
+visible = false
