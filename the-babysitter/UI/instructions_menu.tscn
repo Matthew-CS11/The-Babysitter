@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crwkmvbsnis53"]
 
 [ext_resource type="Script" uid="uid://bv5huf6vme4wv" path="res://UI/instructions_menu.gd" id="1_jooyl"]
+[ext_resource type="AudioStream" uid="uid://54d4ps0ewvt5" path="res://assets/scary music.mp3" id="2_eyjjp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8agcy"]
 font_size = 32
@@ -74,5 +75,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Go Back"
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1351457868]
+stream = ExtResource("2_eyjjp")
 
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

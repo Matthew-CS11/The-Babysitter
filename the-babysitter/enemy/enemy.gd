@@ -6,7 +6,6 @@ class_name Enemy
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player = $"../player"
 @onready var animation_player: AnimationPlayer = $demon/AnimationPlayer
-@onready var win_screen: Control = $Win_screen
 
 var agro :float = false
 var health : int

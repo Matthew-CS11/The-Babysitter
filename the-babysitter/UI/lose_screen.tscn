@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bc2m6vbelfisa"]
 
 [ext_resource type="Script" uid="uid://dq26sa8vgpyb6" path="res://UI/lose_screen.gd" id="1_cbtnu"]
+[ext_resource type="AudioStream" uid="uid://54d4ps0ewvt5" path="res://assets/scary music.mp3" id="2_omspb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_deucp"]
 font_size = 64
@@ -57,5 +58,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "RETRY"
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=2064628388]
+stream = ExtResource("2_omspb")
 
 [connection signal="pressed" from="retry_button" to="." method="_on_retry_button_pressed"]

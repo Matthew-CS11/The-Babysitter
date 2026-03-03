@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ba8orbfl17isq"]
 
 [ext_resource type="Script" uid="uid://dm561b3j7s48b" path="res://UI/start_menu.gd" id="1_dl586"]
+[ext_resource type="AudioStream" uid="uid://54d4ps0ewvt5" path="res://assets/scary music.mp3" id="2_q5qyg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dl586"]
 font_size = 64
@@ -73,6 +74,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "INSTRUCTIONS"
+
+[node name="Menu_music" type="AudioStreamPlayer" parent="." unique_id=1754912297]
+stream = ExtResource("2_q5qyg")
 
 [connection signal="pressed" from="Play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Instructions_button" to="." method="_on_instructions_button_pressed"]
