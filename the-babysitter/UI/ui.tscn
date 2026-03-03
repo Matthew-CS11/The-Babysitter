@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bo08xll2tb6k4"]
 
-[ext_resource type="Script" uid="uid://cqv7qpg4h75cv" path="res://ui.gd" id="1_fyqef"]
-[ext_resource type="PackedScene" uid="uid://bc2m6vbelfisa" path="res://lose_screen.tscn" id="2_m6e0p"]
+[ext_resource type="Script" uid="uid://cqv7qpg4h75cv" path="res://UI/ui.gd" id="1_fyqef"]
+[ext_resource type="PackedScene" uid="uid://bc2m6vbelfisa" path="res://UI/lose_screen.tscn" id="2_m6e0p"]
+[ext_resource type="PackedScene" uid="uid://csi36h2tmfwp" path="res://UI/win_screen.tscn" id="3_e6gg6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb563"]
 font_size = 36
@@ -53,4 +54,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_m6e0p")
 
 [node name="Lose_screen" parent="." unique_id=1275241154 instance=ExtResource("2_m6e0p")]
+visible = false
+
+[node name="Win_screen" parent="." unique_id=1824676134 instance=ExtResource("3_e6gg6")]
 visible = false

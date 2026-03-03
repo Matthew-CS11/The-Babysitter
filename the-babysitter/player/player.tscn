@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkays6ln1w3a" path="res://assets/blaster-n.glb" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dl8effflwlkho" path="res://assets/blaster_n.gd" id="3_g1dw6"]
 [ext_resource type="Curve" uid="uid://sidrmf6ohkh5" path="res://player/recoil.tres" id="4_yw30f"]
-[ext_resource type="AudioStream" uid="uid://cgt47ywx68ql" path="res://Futuristic Sniper Rifle Single Shot.wav" id="5_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://cgt47ywx68ql" path="res://assets/Futuristic Sniper Rifle Single Shot.wav" id="5_qjkh3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
 albedo_color = Color(0, 0.0666666, 1, 1)

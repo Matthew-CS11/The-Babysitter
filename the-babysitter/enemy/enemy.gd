@@ -6,9 +6,11 @@ class_name Enemy
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player = $"../player"
 @onready var animation_player: AnimationPlayer = $demon/AnimationPlayer
+@onready var win_screen: Control = $Win_screen
 
 var agro :float = false
 var health : int
+var demons_killed : int = 0
 
 signal killed
 
@@ -19,10 +21,12 @@ func take_damage(amt: int) -> void:
 	health -= amt
 	if health <= 0:
 		killed.emit()
+		demons_killed += 1
 		queue_free()
 
 func _process(_delta: float) -> void:
 	navigation_agent_3d.set_target_position(player.global_position)
+
 
 func _physics_process(_delta: float) -> void:
 	var destination = navigation_agent_3d.get_next_path_position()

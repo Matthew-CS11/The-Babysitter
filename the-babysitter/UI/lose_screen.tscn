@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc2m6vbelfisa"]
 
-[ext_resource type="Script" uid="uid://dq26sa8vgpyb6" path="res://lose_screen.gd" id="1_cbtnu"]
+[ext_resource type="Script" uid="uid://dq26sa8vgpyb6" path="res://UI/lose_screen.gd" id="1_cbtnu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_deucp"]
 font_size = 64

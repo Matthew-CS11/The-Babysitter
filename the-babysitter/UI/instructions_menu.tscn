@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://crwkmvbsnis53"]
+
+[ext_resource type="Script" uid="uid://bv5huf6vme4wv" path="res://UI/instructions_menu.gd" id="1_jooyl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8agcy"]
+font_size = 32
+
+[node name="Instructions_Menu" type="Control" unique_id=1067839208]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jooyl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=851071187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1191604437]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -249.0
+offset_right = 482.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Kill demons and survive long enough to escape into the house."
+label_settings = SubResource("LabelSettings_8agcy")
+
+[node name="Label2" type="Label" parent="." unique_id=358016205]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -177.0
+offset_right = 482.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Controls: 
+WASD + space for movement and jumping
+Left-click to shoot
+E to interact"
+label_settings = SubResource("LabelSettings_8agcy")
+horizontal_alignment = 1
+
+[node name="back_button" type="Button" parent="." unique_id=1246846066]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 52.0
+offset_right = 73.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Go Back"
+
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

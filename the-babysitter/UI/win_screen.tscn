@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://csi36h2tmfwp"]
+
+[ext_resource type="Script" uid="uid://ciuef5oihnm2h" path="res://UI/win_screen.gd" id="1_t25dr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7euc"]
+font_size = 48
+
+[node name="Win_screen" type="Control" unique_id=1824676134]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t25dr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=87416822]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14666666, 0.55, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=608242747]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -176.0
+offset_right = 112.5
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_g7euc")
+
+[node name="Tracker" type="Label" parent="." unique_id=292660490]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -111.0
+offset_right = 112.5
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Killed 0 Demons!"
+label_settings = SubResource("LabelSettings_g7euc")
+
+[node name="Play_again" type="Button" parent="." unique_id=265254324]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -15.5
+offset_right = 50.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="Play_again" to="." method="_on_play_again_pressed"]
