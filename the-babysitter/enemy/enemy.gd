@@ -31,6 +31,7 @@ func take_damage(amt: int) -> void:
 
 func _process(_delta: float) -> void:
 	navigation_agent_3d.set_target_position(player.global_position)
+	look_at(player.global_position)
 
 
 func _physics_process(_delta: float) -> void:
