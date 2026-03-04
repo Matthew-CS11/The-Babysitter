@@ -7,11 +7,6 @@
 radius = 0.93501663
 height = 1.8700333
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_scxef"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_2mvqj"]
-radius = 3.9841793
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_soie0"]
 resource_name = "Demon"
 vertex_color_use_as_albedo = true
@@ -581,19 +576,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2132802, 0.3421228, 0.2894
 visible = false
 shape = SubResource("CapsuleShape3D_2mvqj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=681801995]
-visible = false
-mesh = SubResource("CapsuleMesh_scxef")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=671690923]
 debug_enabled = true
-
-[node name="agression_radius" type="Area3D" parent="." unique_id=834380806]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="agression_radius" unique_id=592798727]
-shape = SubResource("SphereShape3D_2mvqj")
-debug_color = Color(0.7, 0, 0.011666489, 0.41960785)
 
 [node name="demon" type="Node3D" parent="." unique_id=2104876912]
 
@@ -950,5 +934,3 @@ libraries/ = SubResource("AnimationLibrary_305jc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=284254676]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18269348, 2.3832703, 0.56973267)
 shape = SubResource("BoxShape3D_2mvqj")
-
-[connection signal="body_entered" from="agression_radius" to="." method="_on_agression_radius_body_entered"]
