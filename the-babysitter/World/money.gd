@@ -3,10 +3,13 @@ extends MarginContainer
 @export var starting_cash := 100
 @onready var label: Label = $Label
 
-var gold :int:
-	set(gld):
-		gold = max(0, gld)
-		label.text = str(gold)
+var demons_killed : int = 0
+
+		
+var cash :int:
+	set(csh):
+		cash = max(0, csh)
+		label.text = str(cash)
 		
 func _ready() -> void:
-	gold = starting_cash
+	cash = starting_cash

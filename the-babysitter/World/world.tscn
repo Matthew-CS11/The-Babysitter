@@ -286,7 +286,7 @@ volume_db = -3.741
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07464218, 2.6560707, -18.325226)
 shape = SubResource("BoxShape3D_eidgh")
 
-[node name="Win_screen" parent="." unique_id=1824676134 instance=ExtResource("9_oe8m4")]
+[node name="Win_screen" parent="." unique_id=1824676134 groups=["win"] instance=ExtResource("9_oe8m4")]
 visible = false
 
 [node name="Money" type="MarginContainer" parent="." unique_id=693747979 groups=["money"]]
@@ -300,6 +300,11 @@ script = ExtResource("10_w47uh")
 layout_mode = 2
 text = "100"
 label_settings = SubResource("LabelSettings_w47uh")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=2055411588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.6301136, -2.7858822)
+text = "GET $2500 TO OPEN AND WIN!"
+font_size = 128
 
 [connection signal="body_entered" from="Win_area" to="." method="_on_win_area_body_entered"]
 

@@ -23,6 +23,7 @@ weapons=""
 damage_area=""
 spawn_points=""
 money=""
+win=""
 
 [input]
 
