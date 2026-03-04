@@ -2,10 +2,12 @@ extends CharacterBody3D
 class_name Enemy
 
 @export var max_health := 50
+@export var money := 100
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player = $"../player"
 @onready var animation_player: AnimationPlayer = $demon/AnimationPlayer
+@onready var bank = get_tree().get_first_node_in_group("money")
 
 var agro :float = false
 var health : int
@@ -21,6 +23,7 @@ func take_damage(amt: int) -> void:
 	if health <= 0:
 		killed.emit()
 		demons_killed += 1
+		bank.gold += money
 		queue_free()
 
 func _process(_delta: float) -> void:

@@ -22,6 +22,7 @@ enemy=""
 weapons=""
 damage_area=""
 spawn_points=""
+money=""
 
 [input]
 

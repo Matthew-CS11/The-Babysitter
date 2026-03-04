@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bc2m6vbelfisa" path="res://UI/lose_screen.tscn" id="7_yf0ba"]
 [ext_resource type="AudioStream" uid="uid://3vtxooauyyc1" path="res://assets/Doom.mp3" id="8_eidgh"]
 [ext_resource type="PackedScene" uid="uid://csi36h2tmfwp" path="res://UI/win_screen.tscn" id="9_oe8m4"]
+[ext_resource type="Script" uid="uid://yb40cxiksed3" path="res://World/money.gd" id="10_w47uh"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_tlwt5"]
 vertices = PackedVector3Array(-15.75, -1.4990106, -33.75, -14.25, -1.4990106, -33.75, -14.5, -1.4990106, -74.5, -16, -1.4990106, -33.25, -74.5, -1.4990106, -74.5, -74.5, -1.4990106, -33.25, 14, -1.4990106, -33.75, 14.25, -1.4990106, -74.5, 15.5, -1.4990106, -33.75, 15.75, -1.4990106, -32, 74.5, -1.4990106, -32.25, 74.5, -1.4990106, -74.5, -74.5, -1.4990106, -4.75, -15.5, -1.4990106, -4.75, 15.5, -1.4990106, -4.75, 74.5, -1.4990106, -4.75, -9, -1.2490106, -26, -9, -1.2490106, -32, -14.25, -1.2490106, -32, -14.25, -1.2490106, -26, -6.75, -1.2490106, -25.75, -6.75, -1.2490106, -24.25, -7.25, -1.2490106, -24, 3.5, -1.2490106, -23.75, 3.5, -1.2490106, -32, 8.25, -1.2490106, -32, 5.5, -1.2490106, -32, 5.5, -1.2490106, -25.75, 8.25, -1.2490106, -24.25, 14, -1.2490106, -17.25, 14, -1.2490106, -24, 5.5, -1.2490106, -17.25, 5, -1.2490106, -25.5, 9.25, 0.75098944, -30.25, 9.25, 0.50098944, -25, 14, 0.50098944, -25, 14, 0.75098944, -30.25, 5.75, -1.2490106, -4.25, 5.75, -1.2490106, -15.25, 3.5, -1.2490106, -15.5, -14.25, -1.2490106, -24, -13.75, -1.2490106, -4.25, 13.75, -1.2490106, -4.25, 14, -1.2490106, -15.25, 2.25, -1.4990106, -2, 1.75, -1.4990106, -2.5, -3.75, -1.4990106, -2, -1, -1.4990106, 6.25, 1, -1.4990106, 6.25, -1, -1.4990106, 7.75, -15.25, -1.4990106, -2.5, -74.5, -1.4990106, 74.5, 0, -1.4990106, 74.5, -4, -1.4990106, -2.5, 0, -1.4990106, 8.25, 4, -1.4990106, -2, 4.25, -1.4990106, -2.5, 1, -1.4990106, 7.75, 15.25, -1.4990106, -2.5, 74.5, -1.4990106, 74.5)
@@ -53,6 +54,12 @@ load_path = "res://.godot/imported/crosshairs_tilesheet_white.png-53511b872f58b4
 [sub_resource type="BoxShape3D" id="BoxShape3D_eidgh"]
 size = Vector3(25.799652, 13.659973, 27.122375)
 
+[sub_resource type="LabelSettings" id="LabelSettings_w47uh"]
+font_size = 48
+font_color = Color(1, 0.26999998, 0.26999998, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
 [node name="World" type="NavigationRegion3D" unique_id=1596434925]
 navigation_mesh = SubResource("NavigationMesh_tlwt5")
 script = ExtResource("1_3f78f")
@@ -61,9 +68,10 @@ script = ExtResource("1_3f78f")
 environment = SubResource("Environment_tlwt5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1396954744]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(1, 0.98333335, 0, 1)
+transform = Transform3D(0.62839407, 0.76651067, 0.13259993, -0.12880054, -0.06558299, 0.98949957, 0.76715815, -0.6388745, 0.057515014, 0, 16.542885, 0)
+light_energy = 0.0
 shadow_enabled = true
+sky_mode = 2
 
 [node name="ground" type="CSGBox3D" parent="." unique_id=1549809559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -280,6 +288,18 @@ shape = SubResource("BoxShape3D_eidgh")
 
 [node name="Win_screen" parent="." unique_id=1824676134 instance=ExtResource("9_oe8m4")]
 visible = false
+
+[node name="Money" type="MarginContainer" parent="." unique_id=693747979 groups=["money"]]
+offset_left = 996.0
+offset_top = 574.0
+offset_right = 1078.0
+offset_bottom = 641.0
+script = ExtResource("10_w47uh")
+
+[node name="Label" type="Label" parent="Money" unique_id=1265882513]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_w47uh")
 
 [connection signal="body_entered" from="Win_area" to="." method="_on_win_area_body_entered"]
 
