@@ -303,7 +303,7 @@ label_settings = SubResource("LabelSettings_w47uh")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=2055411588]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.6301136, -2.7858822)
-text = "GET $2500 TO OPEN AND WIN!"
+text = "GET $2500 TO OPEN AND WIN! (Press E to Open)"
 font_size = 128
 
 [connection signal="body_entered" from="Win_area" to="." method="_on_win_area_body_entered"]
